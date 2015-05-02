@@ -6,16 +6,20 @@
 
 /* Various 'global' variables to be set. */
 var canvas = document.querySelector(".canvas");
+
 var canvasWidth = canvas.width;
 var canvasHeight = canvas.height;
+
 var baselineX = canvasWidth / 16;
 var baselineY = canvasHeight / 2;
+
 var requestAnimationFrame = window.requestAnimationFrame || 
                             window.mozRequestAnimationFrame || 
                             window.webkitRequestAnimationFrame || 
                             window.msRequestAnimationFrame;
-var Bg = new Background("#333");
-var Pl = new Player("#ADD", baselineX, baselineY, 50, 50);
+
+var Bg = new Background(Colors.red);
+var Pl = new Player(Colors.player, baselineX, baselineY, 50, 50);
 
 function main()
 {

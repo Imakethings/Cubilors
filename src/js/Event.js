@@ -23,22 +23,22 @@ window.addEventListener('keydown', function(e){
     {
         /* Default bind to key A */
         case 65:
-        /* Execute code for when said key is pressed. */
+            Bg.setColor(Colors.red)
         break;
         
         /* Default bind to key S */
         case 83:
-        /* Execute code for when said key is pressed. */
+            Bg.setColor(Colors.blue)
         break;
         
         /* Default bind to key D */
         case 68:
-        /* Execute code for when said key is pressed. */
+            Bg.setColor(Colors.green)
         break;
 
         /* Default bind to key F */
         case 70:
-        /* Execute code for when said key is pressed. */
+            Bg.setColor(Colors.orange)
         break;
     }
 });
