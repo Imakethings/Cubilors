@@ -18,25 +18,49 @@ var requestAnimationFrame = window.requestAnimationFrame ||
                             window.webkitRequestAnimationFrame || 
                             window.msRequestAnimationFrame;
 
-var Bg = new Background(Colors.red);
-var Pl = new Player(Colors.player, baselineX, baselineY, 50, 50);
-
 function main()
-{
-    /* Create the context variable and assign the 2d platform. */
-    var context = canvas.getContext('2d'); 
-    
+{   
     /* Clean the frame. */
     context.clearRect(0, 0, canvasWidth, canvasHeight);
     
     /* This will draw the background with specified color. */
-    Bg.draw(context, canvasWidth, canvasHeight);
-    Pl.draw(context);
+    Bg.draw(context);
+    
+    /* Update the position of the enemies. 
+     * Also pass along the location of the player for collition detection. */
+    Ey.update(context, Py.posX, Py.posY, Py.sizeX, Py.sizeY, Bg.color)
 
-    /* Attempt to (re)-load the canvas as many times
-     * As your browser/computer can handle. */
+    /* Spawn the player on specified context. */
+    Py.spawn(context);
+
+    /* Attempt to (re)-load the canvas as many times as your browser can handle. */
     requestAnimationFrame(main)
 }
 
 if (Warning.size(720, 480) && Warning.supported())
+{
+    /* Create the context variable and assign the 2d platform. */
+    var context = canvas.getContext('2d'); 
+
+    /* Create a new (B)ack(g)round object and assign: 
+     * A default color that represents the background. 
+     * The height and width of the canvas being played on. */
+    var Bg = new Background(Colors.random(), canvasWidth, canvasHeight);
+    
+    /* Create a new (P)la(y)er object and assign:
+     * A default color that represents the player,
+     * The baseline position on both the X & Y axis,
+     * The width and height. 
+     */
+    var Py = new Player("#FFFFFF", baselineX, baselineY, 50, 50);
+    
+    /* Create a new (E)nem(y) object ans assign:
+     */
+    var Ey = new Enemies();
+
+    setInterval(function(){
+        Ey.add(canvasWidth, baselineY, 1)
+    }, 5000);
+
     main();
+}

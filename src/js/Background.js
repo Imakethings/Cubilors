@@ -8,9 +8,11 @@
  * @description - Initialise a background object with a default color.
  * @argument {string} color - A hexidecimal code.
  */
-Background = function(color)
+Background = function(color, x, y)
 {
     this.color = color;
+    this.x = x;
+    this.y = y;
 }
 
 /**
@@ -31,25 +33,13 @@ Background.prototype.setColor = function(color)
     return false
 }
 
-/**
- * @description - Obtain the current color of the background object.
- * @return - string
- */
-Background.prototype.getColor = function()
+Background.prototype.draw = function(context)
 {
-    return this.color;
-}
-
-Background.prototype.draw = function(context, x, y)
-{
-    x = x || "undefined";
-    y = y || "undefined";
-    
     /* Draw the background. */
-    if (x != "undefined" && y != "undefined")
+    if (this.x != "undefined" && this.y != "undefined")
     {
         context.fillStyle = this.color;
-        context.fillRect(0, 0, x, y); 
+        context.fillRect(0, 0, this.x, this.y); 
         return true;
     } 
     return false;

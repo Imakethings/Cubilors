@@ -23,22 +23,22 @@ window.addEventListener('keydown', function(e){
     {
         /* Default bind to key A */
         case 65:
-            Bg.setColor(Colors.red)
+            Bg.setColor(Colors.all.red)
         break;
         
         /* Default bind to key S */
         case 83:
-            Bg.setColor(Colors.blue)
+            Bg.setColor(Colors.all.blue)
         break;
         
         /* Default bind to key D */
         case 68:
-            Bg.setColor(Colors.green)
+            Bg.setColor(Colors.all.green)
         break;
 
         /* Default bind to key F */
         case 70:
-            Bg.setColor(Colors.orange)
+            Bg.setColor(Colors.all.orange)
         break;
     }
 });

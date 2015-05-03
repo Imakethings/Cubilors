@@ -4,6 +4,14 @@
  * Distributed under terms of the MIT license.
  */
 
+/**
+ * @description - Initialise the player with various attributes.
+ * @argument {string} color - A valid hexidecimal code.
+ * @argument {integer} xx - Position on the X axis.
+ * @argument {integer} x - Height (size) on the X axis.
+ * @argument {integer} yy - Position on the Y axis.
+ * @argument {integer} y - Width (size) on the Y axis.
+ */
 Player = function(color, xx, yy, x, y)
 {
     this.color = color;
@@ -11,20 +19,14 @@ Player = function(color, xx, yy, x, y)
     this.posX = xx;
     this.sizeY = y;
     this.posY = yy;
+    this.collide = false;
 }
 
-Player.prototype.setAttribute = function(attribute, value)
-{
-    if (this[attribute] === "undefined")
-        this[attribute] = value;
-}
-
-Player.prototype.getAttribute = function(attribute)
-{
-    return this[attribute]
-}
-
-Player.prototype.draw = function(context, x, y)
+/**
+ * @description - Spawn the player on the canvas.
+ * @argument {element} context - The canvas element to be addressed.
+ */
+Player.prototype.spawn = function(context)
 {
     context.fillStyle = this.color;
     context.fillRect(this.posX, this.posY, this.sizeX, this.sizeY)
