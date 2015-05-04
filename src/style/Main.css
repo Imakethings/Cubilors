@@ -4,7 +4,15 @@
  * Distributed under terms of the MIT license.
  */
 
+
+.feedback
+{
+
+}
+
 canvas 
 {
-    border: 1px solid black;
+    width: 100%;
+    min-height: 280px;
+    max-height: 580px;
 }

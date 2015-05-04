@@ -20,11 +20,12 @@ Enemies = function()
  */
 Enemies.prototype.update = function(context, plX, plY, plW, plH, bgC)
 {
-    var self = this;
     var dead = false;
     /* Itterate over all the available enemies and rewrite their position. */
-    self.enemies.forEach(function(o, i){
-        
+    
+    for(var i=0; i<this.enemies.length; i++) 
+    {
+        var o = this.enemies[i]           
         /* Assign a color which matches the object & write it. */
         context.fillStyle = o.color;
         context.fillRect(o.posX, o.posY, o.sizeX, o.sizeY);
@@ -35,16 +36,15 @@ Enemies.prototype.update = function(context, plX, plY, plW, plH, bgC)
 
         /* When the object has COMPLETELY dissapeared, stop tracking it
          * - o.sizeX is to detect the end of the object -- not the start. */
-        //BUG: Removes all the elements magically.
         if (o.posX < (0 - o.sizeX))
-            self.enemies = self.enemies.splice(i, i)   
+            this.enemies.splice(i, 1)   
 
         /* When there is collision see if the background color matches
          * The current cube color. If that is NOT the case. You simply died. */
-        if (self.collides(o.posX, o.posY, o.sizeX, o.sizeY, plX, plY, plW, plH))
+        if (this.collides(o.posX, o.posY, o.sizeX, o.sizeY, plX, plY, plW, plH))
             if (bgC != o.color)
                 dead = true;
-        });
+    }
 
     /* Return true when the user is dead, that way we know when to restart the game. */
     return true ? dead : false

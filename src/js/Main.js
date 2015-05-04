@@ -59,7 +59,7 @@ if (Warning.size(720, 480) && Warning.supported())
     var Ey = new Enemies();
 
     setInterval(function(){
-        Ey.add(canvasWidth, baselineY, 1)
+        Ey.add(canvasWidth, baselineY, 1);
     }, 5000);
 
     main();
