@@ -5,10 +5,13 @@
  */
 
 /* Globally track the keydown events made which will then trigger events. */
-window.addEventListener('keydown', function(e){
+window.addEventListener("keydown", function(e){
     
     /* Here the code will be saved which is bound to a visual key. */
     var code = e.which || e.keycode;
+
+    if (!request)
+        return null;
 
     /*
      * A    = 65
@@ -23,23 +26,28 @@ window.addEventListener('keydown', function(e){
     {
         /* Default bind to key A */
         case 65:
-            Bg.setColor(Colors.all.red)
+            Bg.setColor(Colors.all.red);
         break;
         
         /* Default bind to key S */
         case 83:
-            Bg.setColor(Colors.all.blue)
+            Bg.setColor(Colors.all.blue);
         break;
         
         /* Default bind to key D */
         case 68:
-            Bg.setColor(Colors.all.green)
+            Bg.setColor(Colors.all.green);
         break;
 
         /* Default bind to key F */
         case 70:
-            Bg.setColor(Colors.all.orange)
+            Bg.setColor(Colors.all.orange);
         break;
     }
 });
+
+window.onblur = function()
+{ 
+    pause(); 
+};
 

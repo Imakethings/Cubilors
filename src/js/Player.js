@@ -19,15 +19,14 @@ Player = function(color, xx, yy, x, y)
     this.posX = xx;
     this.sizeY = y;
     this.posY = yy;
-    this.collide = false;
-}
+};
 
 /**
  * @description - Spawn the player on the canvas.
- * @argument {element} context - The canvas element to be addressed.
+ * @argument {element} ctx - The canvas element to be addressed.
  */
-Player.prototype.spawn = function(context)
+Player.prototype.spawn = function(ctx)
 {
-    context.fillStyle = this.color;
-    context.fillRect(this.posX, this.posY, this.sizeX, this.sizeY)
-}
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.posX, this.posY, this.sizeX, this.sizeY);
+};

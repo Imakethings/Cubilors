@@ -15,7 +15,7 @@ Colors.all = {
     green:  '#27AE60',
     blue:   '#2980B9',
     red:    '#C0392B',
-}
+};
 
 /**
  * @description - Take a random color from a predefined object of colors.
@@ -23,5 +23,5 @@ Colors.all = {
  */
 Colors.random = function()
 {
-    return this.all[Object.keys(this.all)[Math.floor(Math.random() * Object.keys(this.all).length)]]
-}
+    return this.all[Object.keys(this.all)[Math.floor(Math.random() * Object.keys(this.all).length)]];
+};
